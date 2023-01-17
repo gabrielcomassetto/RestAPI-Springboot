@@ -9,62 +9,54 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.attornatus.avaliacao.model.Endereco;
 import com.attornatus.avaliacao.model.Pessoa;
+import com.attornatus.avaliacao.repository.EnderecoRepository;
 import com.attornatus.avaliacao.repository.PessoaRepository;
+import com.attornatus.avaliacao.service.pessoaService;
 
 @RestController
 @RequestMapping("/")
 public class PessoaController {
 	
 		@Autowired
-		private PessoaRepository repository;
+		private pessoaService service;
 		
 	
-		@GetMapping(path = {"pessoas"})
+		@GetMapping("pessoas")
 		public List<Pessoa> findAll() {
-			return repository.findAll();		
+			return service.getPessoas();
 		}
 		
 		
-		@GetMapping(path = {"pessoas/{id}"})
-		public ResponseEntity<?> findById(@PathVariable long id){
-		   return repository.findById(id)
-		           .map(record -> ResponseEntity.ok().body(record))
-		           .orElse(ResponseEntity.notFound().build());
+		@GetMapping("pessoas/{id}")
+		public Optional<Pessoa> findById(@PathVariable long id){
+		   return service.getPessoaPorId(id);
 		}
 		
 		
-		@PostMapping
+		@PostMapping("pessoas")
 		public Pessoa save(@RequestBody Pessoa pessoa) {
-			return repository.save(pessoa);
+			return service.addPessoa(pessoa);
 		}
 		
-		@DeleteMapping(path ={"pessoas/{id}"})
-		public ResponseEntity <?> delete(@PathVariable long id) {
-		   return repository.findById(id)
-		           .map(record -> {
-		               repository.deleteById(id);
-		               return ResponseEntity.ok().build();
-		           }).orElse(ResponseEntity.notFound().build());
+		@DeleteMapping("pessoas/{id}")
+		public void delete(@PathVariable long id) {
+			service.deletePessoa(id);
 		}
 		
-		@PostMapping
-		public ResponseEntity<Object> addEndereco(@PathVariable long id, Endereco endereco){
-			return repository.findById(id).map(record -> {
-			repository.(endereco);
-			return ResponseEntity.ok().build();
-			}).orElse(ResponseEntity.notFound().build());
+		@PutMapping("pessoas/{id}")
+		public Pessoa updatePessoa(@PathVariable long id, @RequestBody Pessoa pessoa) {
+			return service.updatePessoa(id, pessoa);
+					
+		}
 
-			
-		}
-			
-		
-		
+	
 		
 		
 

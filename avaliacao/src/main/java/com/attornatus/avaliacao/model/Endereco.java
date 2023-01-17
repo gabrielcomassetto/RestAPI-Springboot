@@ -1,6 +1,7 @@
 package com.attornatus.avaliacao.model;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -23,13 +24,17 @@ public class Endereco {
 	private String cidade;
 	
 	@ManyToOne
-	@JoinColumn(name = "pessoa_id")
+    @JoinColumn(name = "pessoa_id")
 	private Pessoa pessoa;
 	
 	private Endereco() {
 		
 	}
 	
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -59,5 +64,9 @@ public class Endereco {
 		this.cidade = cidade;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Endereco [id=" + id + ", logradouro=" + logradouro + ", cep=" + cep + ", numero=" + numero + ", cidade="
+				+ cidade + ", pessoa=" + pessoa + "]";
+	}
 }

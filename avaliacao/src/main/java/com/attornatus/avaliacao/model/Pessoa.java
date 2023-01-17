@@ -4,35 +4,44 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "pessoas")
 public class Pessoa {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String nome;
-	
-	@JsonFormat(pattern="dd-MM-yyyy")
 	private String dataNasc;
 	
-	@OneToMany(mappedBy = "pessoa", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name = "pessoa_id")
 	private List<Endereco> enderecos;
 	
-	
-	private Pessoa() {
+	public Pessoa() {
 
 	}
 	
+	public Pessoa(Long id, String nome, String dataNasc, List<Endereco> enderecos) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.dataNasc = dataNasc;
+		this.enderecos = enderecos;
+	}
+
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public Long getId() {
 		return id;
 	}
