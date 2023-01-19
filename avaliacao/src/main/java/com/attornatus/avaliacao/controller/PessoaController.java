@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,11 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.attornatus.avaliacao.model.Endereco;
 import com.attornatus.avaliacao.model.Pessoa;
-import com.attornatus.avaliacao.repository.EnderecoRepository;
-import com.attornatus.avaliacao.repository.PessoaRepository;
 import com.attornatus.avaliacao.service.pessoaService;
 
 @RestController
@@ -55,10 +50,15 @@ public class PessoaController {
 			return service.updatePessoa(id, pessoa);
 					
 		}
+		
+		@GetMapping("pessoas/endereco/{id}")
+		public List<String> findByPessoaEnderecoId(@PathVariable long id){
+			return service.getPessoasEndereco(id);
+		}
+		
+
+		
 
 	
-		
-		
-
 }
 

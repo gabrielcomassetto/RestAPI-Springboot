@@ -36,4 +36,8 @@ public class pessoaService {
 	public void deletePessoa(long id) {
 		 repository.deleteById(id);
 	}
+
+	public List<String> getPessoasEndereco(long id){
+		return repository.findEnderecoPessoaById(id);
+	}
 }
