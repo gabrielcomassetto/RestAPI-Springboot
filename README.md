@@ -1,7 +1,7 @@
 # API Rest SpringBoot
 
-API para criar, listar, atualizar pessoas, contendo juntamente uma lista de endereços.
-Testes unitários na camada service.
+API para criar, listar, atualizar pessoas, contendo juntamente uma lista de endereços.<br>
+Testes unitários na camada service.<br>
 Testes de integração na camada controller.
 
 Modelo OneToMany
