@@ -1,6 +1,8 @@
 # API Rest SpringBoot
 
-API para criar, listar, atualizar pessoas, contendo juntamente com uma lista de endereços.<br>
+API para criar, listar, atualizar pessoas.<br>
+A classe de Pessoa contém uma lista de Endereços.<br>
+Documentação com swagger 2.<br>
 Testes unitários na camada service.<br>
 Testes de integração na camada controller.
 
