@@ -8,10 +8,10 @@
 		<version>2.7.7</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.attornatus</groupId>
-	<artifactId>avaliacao</artifactId>
+	<groupId>com.apirest</groupId>
+	<artifactId>ApiRestSpring</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>avaliacao</name>
+	<name>ApiRestSpring</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>

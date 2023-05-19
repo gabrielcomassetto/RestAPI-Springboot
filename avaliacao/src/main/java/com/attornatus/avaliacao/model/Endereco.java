@@ -1,5 +1,5 @@
-package com.attornatus.avaliacao.model;
 
+package com.attornatus.avaliacao.model;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;

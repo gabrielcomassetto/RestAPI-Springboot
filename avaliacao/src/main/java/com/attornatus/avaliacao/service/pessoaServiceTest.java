@@ -1,10 +1,7 @@
 package com.attornatus.avaliacao.service;
-
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
-
 import java.util.List;
-
 import java.util.Arrays;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,7 +11,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import com.attornatus.avaliacao.model.Pessoa;
 import com.attornatus.avaliacao.repository.PessoaRepository;
 

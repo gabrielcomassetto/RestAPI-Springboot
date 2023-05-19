@@ -40,4 +40,6 @@ public class pessoaService {
 	public List<String> getPessoasEndereco(long id){
 		return repository.findEnderecoPessoaById(id);
 	}
+	
+
 }

@@ -9,9 +9,16 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
+import lombok.Builder;
+
+
+
+
 
 @Entity
+@Builder
 public class Pessoa {
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,7 +29,7 @@ public class Pessoa {
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name = "pessoa_id")
 	private List<Endereco> enderecos;
-	
+
 	public Pessoa() {
 
 	}
@@ -64,6 +71,7 @@ public class Pessoa {
 	public void setEnderecos(List<Endereco> enderecos) {
 		this.enderecos = enderecos;
 	}
+
 
 	
 }

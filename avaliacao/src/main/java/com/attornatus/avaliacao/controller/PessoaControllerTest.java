@@ -1,9 +1,6 @@
 package com.attornatus.avaliacao.controller;
-
 import static org.mockito.Mockito.when;
-
 import java.util.Optional;
-
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
